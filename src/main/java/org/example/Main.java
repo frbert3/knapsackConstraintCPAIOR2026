@@ -155,5 +155,5 @@ public class Main {
 // args : benchmark pb_name.extension model NumberOfSteps threshold additionnalSteps timeout
 // threshold can be either 'avg' or a double
 
-// /Users/fredericberthiaume/Desktop/script_to_run_beasley.txt
-// mvn exec:java -Dexec.args="beasley mknap2_36.txt steps 60 avg 2 300s" > /Users/fredericberthiaume/Desktop/output_beasley_36.txt
+
+// mvn exec:java -Dexec.args="beasley mknap2_36.txt steps 60 avg 2 300s" > output_beasley_36.txt
