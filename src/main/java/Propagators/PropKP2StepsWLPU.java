@@ -392,7 +392,7 @@ public class PropKP2StepsWLPU extends Propagator<IntVar> {
                 coef = 30.0;
                 int l=0;
                 i_smaller_than_nm = i < N*M;
-                while (l<=nsteps && ((V - Math.abs(rc[i]))>=P.getLB())) {
+                while (l<nsteps && ((V - Math.abs(rc[i]))>=P.getLB())) {
 //                    System.out.println("Hello");
                     rci=0.0;
                     compute_gradient();

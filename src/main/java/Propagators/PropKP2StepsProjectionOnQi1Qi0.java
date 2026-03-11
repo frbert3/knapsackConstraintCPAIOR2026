@@ -335,7 +335,7 @@ public class PropKP2StepsProjectionOnQi1Qi0 extends Propagator<IntVar> {
             if((!X[i].isInstantiated() && lagrangian_forbidden_value[i].size()==0)) {
                 coef = 30.0;
                 int l=0;
-                while (l<=nsteps && ((V - Math.abs(rc[i]))>=P.getLB())) { // First k step
+                while (l<nsteps && ((V - Math.abs(rc[i]))>=P.getLB())) { // First k step
                     rci=0.0;
                     compute_gradient();
                     coef *= 0.5;

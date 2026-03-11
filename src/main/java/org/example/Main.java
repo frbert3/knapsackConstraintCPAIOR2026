@@ -1,8 +1,5 @@
 package org.example;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.util.Arrays;
 
 import MKP_extractor.MKPData;
@@ -10,13 +7,11 @@ import MKP_extractor.MKP_parseur;
 import MKP_extractor.WLPUncapacitedData;
 import MKP_extractor.WLPUncapacited_parseur;
 import Propagators.PropKP2Steps;
-import Propagators.PropKP2StepsFilteringBeforeLocal;
 import Propagators.PropKP2StepsProjectionOnQi1Qi0;
 import Propagators.PropKP2StepsWLPU;
 import org.chocosolver.solver.Model;
 
 
-import Vector_Print.*;
 import org.chocosolver.solver.Solution;
 import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.search.SearchState;
@@ -42,7 +37,6 @@ public class Main {
         Constraint constraint_mkp;
         PropKP2StepsWLPU propWLPU;
         PropKP2Steps prop2Steps;
-        PropKP2StepsFilteringBeforeLocal prop2StepsFilteringBeforeLocal;
         PropKP2StepsProjectionOnQi1Qi0 propProjection;
         int obj = 0;
         if (args[0].equals("beasley") || args[0].equals("ChuAndBeasley") || args[0].equals("Petersen")) {
@@ -69,14 +63,8 @@ public class Main {
                 constraint_mkp = new Constraint("mkp", propProjection);
             }
             else {
-                if(args[2].equals("stepsFiltering")) {
-                    prop2StepsFilteringBeforeLocal = new PropKP2StepsFilteringBeforeLocal(X, P, c, b, A, threshold, NumberOfSteps, Integer.parseInt(args[5]));
-                    constraint_mkp = new Constraint("mkp", prop2StepsFilteringBeforeLocal);
-                }
-                else {
-                    prop2Steps = new PropKP2Steps(X, P, c, b, A, threshold, NumberOfSteps, Integer.parseInt(args[5]));
-                    constraint_mkp = new Constraint("mkp", prop2Steps);
-                }
+                prop2Steps = new PropKP2Steps(X, P, c, b, A, threshold, NumberOfSteps, Integer.parseInt(args[5]));
+                constraint_mkp = new Constraint("mkp", prop2Steps);
             }
             constraint_mkp.post();
             model.setObjective(Model.MAXIMIZE, P);
