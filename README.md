@@ -16,7 +16,7 @@ Valid entries for INSTANCE
  
  if PROBLEM = ChuAndBeasley then i_j_k.txt where i = 5 10 30, j = 100 250 500, k = 0 .. 29
  
- if PROBLEM = Petersen then mknap2_i.txt where i = 1 2 3 4 5 6 7
+ if PROBLEM = Petersen then mknap1_i.txt where i = 1 2 3 4 5 6 7
  
  if PROBLEM = FanceUK then pb_i.txt where i = 0 .. 23 
 
