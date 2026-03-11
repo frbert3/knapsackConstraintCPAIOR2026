@@ -1,3 +1,9 @@
+This code follows the paper 
+
+Berthiaume, F., Quimper, C.G.: The Theory of Lagrangian Filtering Zones: A Case Study on the Knapsack Constraint. In: International Conference on the Integration of Constraint Programming, Artificial Intelligence, and Operations Research (2026)
+
+If you use it for a scientific project, don't forget to cite us!
+
 To run the experiments of the paper run 
 
  mvn exec:java -Dexec.args="PROBLEM INSTANCE METHOD MaxItX THRESHOLD MinItX TIMEOUT" > output.txt
